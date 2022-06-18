@@ -9,6 +9,8 @@ foldername=folder.decode()
 #? MEJORA poner interfaz grafica
 #? MEJORA seleccion de carpeta graficamentw
 
+#! PROBLEMON , QUE PASA CON CAPITULOS 7.5 , SE METEN DELANTE? parece que no -> testear
+
 def main():
 
     #TODO PONER VERSION FINAL
@@ -26,7 +28,7 @@ def main():
 
 def organizePics():
 
-    #TODO crear carpeta final
+    #! crear carpeta final
 
     for file in os.listdir(folder):
 
@@ -46,6 +48,8 @@ def organizePics():
                 absolute_path_file_nest=absolute_path_file+file_nested_name
 
                 #if absolute_path_file_nest in [".png" or ".jpg"]:
+                #! FALTA comprobar si png y añadir a la carpeta grande
+
                 print(absolute_path_file_nest)
 
         else:
