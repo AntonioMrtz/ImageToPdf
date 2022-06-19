@@ -8,8 +8,9 @@
 <p>By setting up a folder like it will be shown later in this document the script sort all photos following alphanumerical order and putting
 all the files in the same folder( ImageToPdf ).</p>
 <p>This is helpful when you want to put together large amounts of pictures stored in different folders and you want to preserv the order between all the items like a comic downloaded in separate chapters and images.</p>
-<p>Convert to pdf uses this schema for generating the pdf. Meanwhile its not active you can just upload the sorted photos to 
-<a href="(https://tools.pdf24.org/es/png-a-pdf">an unlimited length online pdf converter</a>.</p>
+<p>Convert to pdf uses this schema for generating the pdf. Meanwhile its not active you can just upload the sorted photos to
+
+<a href="https://tools.pdf24.org/es/png-a-pdf">an unlimited length online pdf converter</a>.</p>
 
 <br>
 
