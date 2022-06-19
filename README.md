@@ -15,7 +15,7 @@ all the files in the same folder( ImageToPdf ).</p>
 
 ### ▶ Convert to Pdf
 <br>
-<p>Gets all the pictures from the created folder in <a href="#convert-to-pdf">Organize pics</a> and put it together on a PDF keeping the order of those.</p>
+<p>Gets all the pictures from the created folder in <a href="#organize-pics">Organize pics</a> and put it together on a PDF keeping the order of those.</p>
 </br>
 </br>
 
