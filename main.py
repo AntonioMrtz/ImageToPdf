@@ -1,6 +1,17 @@
 import os
 import logging
 import shutil
+import re
+
+
+numbers = re.compile(r'(\d+)')
+
+def numericalSort(value):
+    parts = numbers.split(value)
+    parts[1::2] = map(int, parts[1::2])
+    return parts
+
+
 
 # You can use RIPSMC hromium to download 
 
@@ -36,23 +47,28 @@ def organizePics():
 
     # iterating trough the subfolders
 
-    for file in os.listdir(folder):
+    #for file in os.listdir(folder):
 
-        filename=file.decode()
+    for filename in sorted(os.listdir(foldername),key=numericalSort):
+
+        
+        #filename=file.decode()
         absolute_path_file=foldername+filename
 
         if os.path.isdir(absolute_path_file):   # only considering subfolders
             
             folder_nested=os.fsencode(absolute_path_file)
 
-            logging.warning(absolute_path_file)
+            logging.info(absolute_path_file)
 
             for file_nested in os.listdir(folder_nested):
 
                 file_nested_name="\\"+file_nested.decode()
                 absolute_path_file_nest=absolute_path_file+file_nested_name
 
-                '''
+                logging.debug(absolute_path_file_nest)
+
+               
                 if ".png" in absolute_path_file_nest:
                     
                     logging.debug(absolute_path_file_nest)
@@ -73,7 +89,7 @@ def organizePics():
                     shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".jpg")
                    
                     current_page+=1
-                '''
+        
 
 
 
