@@ -7,7 +7,7 @@ import shutil
 folder=os.fsencode("E:\RIP MSC tmo\Descargas\\")     #* Put here the folder path that contains all the folders with the pictures
 foldername=folder.decode()
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.WARNING)
 
 #? MEJORA poner interfaz grafica
 #? MEJORA seleccion de carpeta graficamentw
@@ -32,6 +32,7 @@ def organizePics():
 
     imageToPdf_folder_name=foldername+"\\"+"ImageToPdf"
     
+    current_page=0 # stores the number of files for renaming
 
     # iterating trough the subfolders
 
@@ -44,20 +45,38 @@ def organizePics():
             
             folder_nested=os.fsencode(absolute_path_file)
 
+            logging.warning(absolute_path_file)
+
             for file_nested in os.listdir(folder_nested):
 
                 file_nested_name="\\"+file_nested.decode()
                 absolute_path_file_nest=absolute_path_file+file_nested_name
 
-                if ".png" in absolute_path_file_nest or ".jpg" in absolute_path_file_nest:
-                    #! FALTA renombrar png 
+                '''
+                if ".png" in absolute_path_file_nest:
+                    
                     logging.debug(absolute_path_file_nest)
 
-                    #os.rename(old_name, new_name)  # cambio nombre para que no se sobreescriban
-                    shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+file_nested_name)
+                    # for avoid permission errors files are copied then renamed
 
-        else:
-            os.remove(absolute_path_file)     
+                    shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".png")
+                    
+                    
+                    current_page+=1
+
+                elif ".jpg" in absolute_path_file_nest:
+                    
+                    logging.debug(absolute_path_file_nest)
+
+                    # for avoid permission errors files are copied then renamed
+
+                    shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".jpg")
+                   
+                    current_page+=1
+                '''
+
+
+
 
 def convertToPdf():
 
