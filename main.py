@@ -3,6 +3,7 @@ import logging
 import shutil
 import re
 
+from PIL import Image
 
 numbers = re.compile(r'(\d+)')
 
@@ -18,6 +19,9 @@ def numericalSort(value):
 
 folder=os.fsencode("E:\RIP MSC tmo\Descargas\\")     #* Put here the folder path that contains all the folders with the pictures
 foldername=folder.decode()
+
+folder_convertToPdf=os.fsencode("E:\\RIP MSC tmo\\Descargas\\ImageToPdf\\")     #* Put here the folder path converted
+foldername_convertToPdf=folder_convertToPdf.decode()
 
 logging.basicConfig(level=logging.WARNING)
 
@@ -85,10 +89,41 @@ def organizePics():
 
 def convertToPdf():
 
-    #TODO after getting folder name , generate pdf 
-    #TODO imageToPdf will be needed
-    #TODO search module generate pdf python
-    pass
+    first_flag=0
+    pics=[]
+
+    if not os.path.isdir(foldername_convertToPdf):
+
+        print("ImageToPdf folder not generated -> try command 0 first")
+        return -1
+
+    for filename in sorted(os.listdir(foldername_convertToPdf),key=numericalSort):
+
+        absolute_path=foldername_convertToPdf+"\\"+filename
+        logging.debug(filename)
+
+
+        if first_flag==0:
+
+            first_flag+=1
+
+            image_1 = Image.open(absolute_path)
+            im_1 = image_1.convert('RGB')
+
+        else:
+
+            image = Image.open(absolute_path)
+            im = image.convert('RGB')
+            pics.append(im)
+
+
+    im_1.save(foldername+"ImageToPdf.pdf", save_all=True, append_images=pics)
+
+
+       
+
+
+
 
 params = {
 
