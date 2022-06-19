@@ -20,12 +20,14 @@ def numericalSort(value):
 folder=os.fsencode("E:\RIP MSC tmo\Descargas\\")     #* Put here the folder path that contains all the folders with the pictures
 foldername=folder.decode()
 
-folder_convertToPdf=os.fsencode("E:\\RIP MSC tmo\\Descargas\\ImageToPdf\\")     #* Put here the folder path converted
+folder_convertToPdf=os.fsencode(foldername+"ImageToPdf\\")     #* Put here the folder path converted
 foldername_convertToPdf=folder_convertToPdf.decode()
 
-logging.basicConfig(level=logging.WARNING)
+#logging.basicConfig(level=logging.WARNING)
 
-
+logging.basicConfig(level=logging.WARNING,
+                    format='[%(asctime)s.%(msecs)03d] [%(levelname)-7s] %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
 
 def organizePics():
 
@@ -82,6 +84,9 @@ def organizePics():
                     shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".jpg")
                    
                     current_page+=1
+
+
+    return
         
 
 
@@ -94,8 +99,8 @@ def convertToPdf():
 
     if not os.path.isdir(foldername_convertToPdf):
 
-        print("ImageToPdf folder not generated -> try command 0 first")
-        return -1
+        logging.warning("ImageToPdf folder not generated -> try command 0 first")
+        return 
 
     for filename in sorted(os.listdir(foldername_convertToPdf),key=numericalSort):
 

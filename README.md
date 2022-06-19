@@ -8,14 +8,14 @@
 <p>By setting up a folder like it will be shown later in this document the script sort all photos following alphanumerical order and putting
 all the files in the same folder( ImageToPdf ).</p>
 <p>This is helpful when you want to put together large amounts of pictures stored in different folders and you want to preserv the order between all the items like a comic downloaded in separate chapters and images.</p>
-<p>Convert to pdf uses this schema for generating the pdf. Meanwhile its not active you can just upload the sorted photos to
+<p><a href="#convert-to-pdf">Convert to pdf</a> uses this schema for generating the pdf. Meanwhile its not active you can just upload the sorted photos to
 <a href="https://tools.pdf24.org/es/png-a-pdf">an unlimited length online pdf converter</a>.</p>
 
 <br>
 
 ### ▶ Convert to Pdf
 <br>
-<p>Gets all the pictures from the created folder in Organize pics and put it together on a PDF keeping the order of those.</p>
+<p>Gets all the pictures from the created folder in <a href="#convert-to-pdf">Organize pics</a> and put it together on a PDF keeping the order of those.</p>
 </br>
 </br>
 
@@ -55,17 +55,17 @@ all the files in the same folder( ImageToPdf ).</p>
 ## Tech usage
 <br>
 
-<p>In this proyect i have made an extensive use of the OS library of python to iterate trough the files and directories and creating/deleting files.</p>
+- In this proyect i have made an extensive use of the OS library of python to iterate through the files and directories and creating/deleting files.
 
 
-<p>With the use of regex i could solved one big issue like it is the order in which the files are stored and iterated. The script make use
-of preordered folders and files but this doesn`t match the order that the OS has internally. By creating a modified sort method this problem was solved.</p>
+- With the use of regex i could solved one big issue like it is the order in which the files are stored and iterated. The script make use
+of preordered folders and files but this doesn`t match the order that the OS has internally. By creating a modified sort method this problem was solved.
 
-<p>The shutil library allow me to copy files from source to destination. I did not rename files from the source folders because it implies modifying user files and when using a file it gives you errors because is being used.</p>
+- The shutil library allow me to copy files from source to destination. I did not rename files from the source folders because it implies modifying user files and when using a file it gives you errors because is being used.
 
-<p>I have set the logging level to Warning but if you want to see in which order the files and folders are being accesed you can set it up to DEBUG at the beginning of the script</p>
+- I have set the logging level to Warning but if you want to see in which order the files and folders are being accesed you can set it up to DEBUG at the beginning of the script.
 
-<p>To generate the Pdf i worked with the PIL library for python.
+- To generate the Pdf i worked with the PIL library for python.
 
 <br>
 
