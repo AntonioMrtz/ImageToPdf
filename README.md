@@ -45,7 +45,7 @@ all the files in the same folder( ImageToPdf ).</p>
 3. Run the script by typing python main.py in the command prompt (only one of those):
 
 >python main.py
-<br>
+
 >python3 main.py
 
 <br>
