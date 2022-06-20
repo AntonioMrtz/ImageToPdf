@@ -53,37 +53,40 @@ def organizePics():
     for filename in sorted(os.listdir(foldername),key=numericalSort):
 
         
-        absolute_path_file=foldername+filename
+        if filename!= "ImageToPdf":
 
-        if os.path.isdir(absolute_path_file):   # only considering subfolders
-            
-            folder_nested=os.fsencode(absolute_path_file)
 
-            logging.debug(absolute_path_file)
+            absolute_path_file=foldername+filename
 
-            for file_nested in os.listdir(folder_nested):
+            if os.path.isdir(absolute_path_file):   # only considering subfolders
+                
+                folder_nested=os.fsencode(absolute_path_file)
 
-                file_nested_name="\\"+file_nested.decode()
-                absolute_path_file_nest=absolute_path_file+file_nested_name
+                logging.debug(absolute_path_file)
 
-                logging.debug(absolute_path_file_nest)
+                for file_nested in os.listdir(folder_nested):
 
-               
-                if ".png" in absolute_path_file_nest:
-                    
+                    file_nested_name="\\"+file_nested.decode()
+                    absolute_path_file_nest=absolute_path_file+file_nested_name
+
                     logging.debug(absolute_path_file_nest)
 
-                    shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".png")
-                                       
-                    current_page+=1
+                
+                    if ".png" in absolute_path_file_nest:
+                        
+                        logging.debug(absolute_path_file_nest)
 
-                elif ".jpg" in absolute_path_file_nest:
+                        shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".png")
+                                        
+                        current_page+=1
+
+                    elif ".jpg" in absolute_path_file_nest:
+                        
+                        logging.debug(absolute_path_file_nest)
+
+                        shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".jpg")
                     
-                    logging.debug(absolute_path_file_nest)
-
-                    shutil.copyfile(absolute_path_file_nest,imageToPdf_folder_name+"\\"+str(current_page)+".jpg")
-                   
-                    current_page+=1
+                        current_page+=1
 
 
     return
