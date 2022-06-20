@@ -136,20 +136,23 @@ def convertToPdf():
 params = {
 
     '0' : organizePics,
-    '1' : convertToPdf
+    '1' : convertToPdf,
 
 }
 
 def main():
     
-    print("Welcome to ImageToPdf!\nWhat would you want to do?\n\n0.Organize images of multiple folders in one \n1.Convert pics to pdf")
+    print("Welcome to ImageToPdf!\nWhat would you want to do?\n\n0.Organize images of multiple folders in one \n1.Convert pics to pdf\n2. Exit\n")
     entryCode=input()
 
+    if entryCode=="2":
+        print("Bye :)\n")
+        exit()
     
     function=params.get(entryCode,-1)
 
-    if(function==-1):
-        print("Número inválido")
+    if function==-1:
+        print("Número inválido\n")
         return -1
     else:
         function()
@@ -157,4 +160,9 @@ def main():
 
 if __name__ == "__main__":
 
-    main()
+    while True:
+
+        main()
+
+
+        
