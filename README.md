@@ -1,5 +1,8 @@
 # ImageToPdf
 
+
+<img src="media/logoImageToPdf.png" width="100" style="padding-left:0px"/>
+
 ## Features
 <br>
 
