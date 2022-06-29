@@ -133,7 +133,7 @@ def convertToPdf():
     if not os.path.isdir(foldername_convertToPdf):
 
         logging.warning(
-            "ImageToPdf folder not generated -> try command 0 first")
+            "ImageToPdf folder not generated")
         return
 
     for filename in sorted(os.listdir(foldername_convertToPdf), key=numericalSort):
@@ -207,7 +207,7 @@ if __name__ == "__main__":
             window2 = sg.Window('ImageToPdf', [[sg.Button('OrganizePics', key="organize_pics")],
                                                [sg.Button(
                                                    'ImageToPdf', key="convert_to_pdf")],
-                                               [sg.Button('Exit')]], icon="media\logoImageToPdf.ico", size=(800, 600), font=font)
+                                               [sg.Button('Exit',key="exit")]], icon="media\logoImageToPdf.ico", size=(800, 600), font=font)
             window.Close()
             window = window2
 
