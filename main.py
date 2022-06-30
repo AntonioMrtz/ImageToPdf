@@ -23,22 +23,13 @@ def numericalSort(value):
 sg.theme('DarkAmber')
 font = ('Arial', 13)
 
-layout_organizePics = [[sg.Text('Enter the folder that stores the image folders:', key="texto")],
-                       [sg.Text('folder', size=(8, 1)),
-                        sg.Input(), sg.FolderBrowse('Browse')],
-                       [sg.Submit(button_text="Organize", key="seleccionar_ruta"), sg.Cancel(button_text="Back", key="main")]]
 
-
-layout_convertToPdf = []
-
-
-layout = [[sg.Button('OrganizePics', key="organize_pics")],
-          [sg.Button('ImageToPdf', key="convert_to_pdf")],
-          [sg.Button('Exit',key="exit")]]
+layout = [[sg.Button('OrganizePics', key="organize_pics",size=(20,10),pad=(0,50)),sg.Button('ImageToPdf', key="convert_to_pdf",size=(20,10))],
+          [sg.Button('Exit', key="exit",size=(10,2))]]
 
 
 window = sg.Window('ImageToPdf', layout,
-                   icon="media\logoImageToPdf.ico", size=(800, 600), font=font)
+                   icon="media\logoImageToPdf.ico", size=(800, 600), font=font,element_justification='c')
 
 
 #*------------ GLOBAL VARIABLES  -----------
@@ -50,7 +41,7 @@ foldername = None
 folder_convertToPdf = None  # * Put here the folder path converted
 foldername_convertToPdf = None
 
-folder_generated=0         #* stores if we have create the ImageToPdf folder before
+folder_generated = 0  # * stores if we have create the ImageToPdf folder before
 
 
 #*------------ LOGGING  -----------
@@ -121,7 +112,7 @@ def organizePics():
 
                         current_page += 1
 
-    folder_generated=1
+    folder_generated = 1
     return
 
 
@@ -167,23 +158,24 @@ if __name__ == "__main__":
 
         if event == "organize_pics":
 
-            window2 = sg.Window('ImageToPdf',  [[sg.Text('Enter the folder that stores the image folders:', key="texto")],
-                                                [sg.Text('folder', size=(8, 1)),
-                                                 sg.Input(), sg.FolderBrowse('Browse')],
-                                                [sg.Submit(button_text="Organize", key="seleccionar_ruta"), sg.Cancel(button_text="Back", key="main")]], icon="media\logoImageToPdf.ico", size=(800, 600), font=font)
+            window2 = sg.Window('ImageToPdf',  [[sg.Text('Enter the folder that stores the image folders:', key="texto", pad=(50, 50))],
+                                                [
+                sg.Input(), sg.FolderBrowse('Browse'), ],
+                [sg.Submit(button_text="Organize", key="seleccionar_ruta"), sg.Cancel(button_text="Back", key="main", pad=(50, 50))]], icon="media\logoImageToPdf.ico", size=(800, 600), font=font, element_justification='c')
             window.Close()
             window = window2
 
-        elif event == "convert_to_pdf" and folder_generated==0:
+        elif event == "convert_to_pdf" and folder_generated == 0:
 
-            sg.Popup('First orgnize the folders with OrganizePics in order to generate the PDF',keep_on_top=True)
+            sg.Popup(
+                'First orgnize the folders with OrganizePics in order to generate the PDF', keep_on_top=True)
 
-        elif event == "convert_to_pdf" and folder_generated==1:
+        elif event == "convert_to_pdf" and folder_generated == 1:
 
             convertToPdf()
-            sg.Popup(f"Pdf generated in folder {foldername_convertToPdf}", keep_on_top=True)
+            sg.Popup(
+                f"Pdf generated in folder {foldername_convertToPdf}", keep_on_top=True)
             break
-            
 
         #* ORGANIZE PICS SCREEN
 
@@ -204,10 +196,8 @@ if __name__ == "__main__":
 
         elif event == "main":
 
-            window2 = sg.Window('ImageToPdf', [[sg.Button('OrganizePics', key="organize_pics")],
-                                               [sg.Button(
-                                                   'ImageToPdf', key="convert_to_pdf")],
-                                               [sg.Button('Exit',key="exit")]], icon="media\logoImageToPdf.ico", size=(800, 600), font=font)
+            window2 = sg.Window('ImageToPdf', [[sg.Button('OrganizePics', key="organize_pics",size=(20,10),pad=(0,50)),sg.Button('ImageToPdf', key="convert_to_pdf",size=(20,10))],
+          [sg.Button('Exit', key="exit",size=(10,2))]], icon="media\logoImageToPdf.ico", size=(800, 600), font=font,element_justification='c')
             window.Close()
             window = window2
 
