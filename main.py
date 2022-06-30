@@ -191,8 +191,14 @@ if __name__ == "__main__":
             folder_convertToPdf = os.fsencode(foldername+"ImageToPdf/")
             foldername_convertToPdf = folder_convertToPdf.decode()
 
-            organizePics()
-            sg.Popup('The files have been organized', keep_on_top=True)
+            if foldername_convertToPdf!="/ImageToPdf/":
+
+                organizePics()
+                sg.Popup('The files have been organized', keep_on_top=True)
+
+            else:
+                
+                sg.Popup('Please introduce a folder', keep_on_top=True)
 
         elif event == "main":
 
